@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Topics Result</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: "Courier New", Courier, monospace;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
+            white-space: pre-wrap; /* Ensures text wraps */
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.25rem;
+            border: none;
+            background: #000;
+            color: white;
+            cursor: pointer;
+            font-size: large;
+        }
+        li{
+            margin-bottom: 0.25rem;
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>These are the most happening topics as on {{ data.timestamp }}</h1>
+
+    <ul>
+        <li>{{ data.trends[0] }}</li>
+        <li>{{ data.trends[1] }}</li>
+        <li>{{ data.trends[2] }}</li>
+        <li>{{ data.trends[3] }}</li>
+        <li>{{ data.trends[4] }}</li>
+    </ul>
+
+    <p>The IP address used for this query was: <b>{{ data.ip_address }}</b>.</p>
+
+    <h2>Here’s a JSON extract of this record from MongoDB:</h2>
+    <!-- Use the 'tojson' filter with indentation to pretty-print the JSON -->
+    <pre>{{ data.json_extract | tojson(indent=4) }}</pre>
+
+    <br><br>
+    <button onclick="window.location.href='/'">Click here to run the query again</button>
+</body>
+</html>
