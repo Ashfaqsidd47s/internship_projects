@@ -23,5 +23,5 @@ don't forget to update the mongo url by default its set to localhost and your tw
 
 i don't know why but while screen recording it didn't recorded the chrome driver running the script which is in this screenshot
 
-![Project Screenshot](screenshot.png)
+![Project Screenshot](Screenshot.png)
 
